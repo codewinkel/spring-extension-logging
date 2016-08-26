@@ -1,5 +1,7 @@
-package io.winkelmann.sel.interceptor;
+package io.winkelmann.sel.service;
 
+import io.winkelmann.sel.config.LogField;
+import io.winkelmann.sel.config.LoggingInterceptorConfig;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -7,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -19,7 +22,8 @@ public class LoggingInterceptorService {
     public String generateMessagePreHandle(LoggingInterceptorConfig config, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         httpServletRequest.setAttribute(START_TIME_ATTRIBUTE, LocalDateTime.now());
         String pattern = config.getPreHandleLogPattern();
-        return generateMessage(pattern, httpServletRequest, httpServletResponse, Duration.ZERO);
+        Duration runtime = calculateRuntime(httpServletRequest);
+        return generateMessage(pattern, httpServletRequest, httpServletResponse, runtime);
     }
 
     public String generateMessageAfterCompletion(LoggingInterceptorConfig config, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) {
@@ -44,7 +48,7 @@ public class LoggingInterceptorService {
         for (LogField field : LogField.values()) {
 
             switch (field) {
-                // request fields
+                // ############## request fields ##############
                 case HTTP_REQUEST_METHOD:
                     generatedMessage = StringUtils.replace(generatedMessage, field.getPattern(), httpServletRequest.getMethod());
                     break;
@@ -60,7 +64,16 @@ public class LoggingInterceptorService {
                 case HTTP_REQUEST_CREATED_SESSION_ID:
                     generatedMessage = StringUtils.replace(generatedMessage, field.getPattern(), httpServletRequest.getSession().getId());
                     break;
-                // response fields
+                case HTTP_REQUEST_PARAMS:
+                    Map<String, String[]> parameterMap = httpServletRequest.getParameterMap();
+                    if (parameterMap != null && !parameterMap.isEmpty()) {
+                        StringBuilder stringBuilder = generateParameterString(parameterMap);
+                        generatedMessage = StringUtils.replace(generatedMessage, field.getPattern(), stringBuilder.toString());
+                    } else {
+                        generatedMessage = StringUtils.replace(generatedMessage, field.getPattern(), field.getDefault());
+                    }
+                    break;
+                // ############## response fields ##############
                 case HTTP_RESPONSE_STATUS:
                     generatedMessage = StringUtils.replace(generatedMessage, field.getPattern(), String.valueOf(httpServletResponse.getStatus()));
                     break;
@@ -74,6 +87,20 @@ public class LoggingInterceptorService {
             }
         }
         return generatedMessage;
+    }
+
+    private StringBuilder generateParameterString(Map<String, String[]> parameterMap) {
+        StringBuilder stringBuilder = new StringBuilder();
+        parameterMap.keySet().forEach(key -> {
+            String[] values = parameterMap.get(key);
+            if (stringBuilder.length() > 0) {
+                stringBuilder.append("&");
+            }
+            stringBuilder.append(key)
+                    .append("=")
+                    .append(String.join(",", values));
+        });
+        return stringBuilder;
     }
 
 }

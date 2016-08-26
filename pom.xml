@@ -7,6 +7,25 @@
     <groupId>io.winkelmann</groupId>
     <artifactId>spring-ext-logging</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Spring Extention Logging</name>
+    <url>https://github.com/mwinkelmann/spring-extension-logging</url>
+
+    <developers>
+        <developer>
+            <id>mwinkelmann</id>
+            <name>Mike Winkelmann</name>
+            <email>mikedotwinkelmann@gmail.com</email>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,6 +35,17 @@
         <org.slf4j.slf4j-api>1.7.21</org.slf4j.slf4j-api>
         <org.projectlombok.lombok>1.16.10</org.projectlombok.lombok>
     </properties>
+
+    <scm>
+        <connection>scm:git:https://github.com/mwinkelmann/spring-extension-logging.git</connection>
+        <developerConnection>scm:git:git@github.com:mwinkelmann/spring-extension-logging.git</developerConnection>
+        <url>https://github.com/mwinkelmann/spring-extension-logging</url>
+    </scm>
+
+    <ciManagement>
+        <system>Travis CI</system>
+        <url>https://travis-ci.org/mwinkelmann/spring-extension-logging</url>
+    </ciManagement>
 
     <dependencies>
         <dependency>
