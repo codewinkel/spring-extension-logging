@@ -1,12 +1,14 @@
 sudo: false
-
 language: java
 
-install: mvn -B install -U -DskipTests=true
-
-script: mvn -B verify -U -Dmaven.javadoc.skip=true
+before_install: "git clone -b travis `git config --get remote.origin.url` target/travis"
+script: "mvn deploy --settings target/travis/settings.xml"
 
 branches:
   only:
-    - master
-    - /^release.*$/
+  - master
+  - /^release.*$/
+env:
+  global:
+  - secure: d8PvENw4j6pSbdV41t5ejB6xQX8SBBd4nM1LhxfuNBfk5WEXB9SYa9cm0xjldNnBOawYCUAGRtxB+pTIcIGj0n8KyWKzyQZ9xPUVYaLASDk1bLcVklNM4rI/5IozGU+T/zcFT0USiuQHRgKPOC+0fXjDE1iGIeSYtJAlwcLxSURtIpjEVjCJBfMhsHX7UBsKnGLOcKBDfpbkZw/zIrNUXqyiU8a/H42H7kMt7s5uOGXvoS2fPg4+a5Pf+FHJnK/W0ddtISHXnPmO6BHNUF2O8bNqDTXBYznnrA5iDA/L5U37ON6s+BVXz1wrqBweLMsEbaMLcTAWdlmKb1fN2K88vhtb0pVwQwglYzv3/bdZk49s7o/BipcF9a1dZyrIkQOPiTNrg+VWKoTjRfkt+TwjthuMoAdkCY8QQi6ak9xM72I65JusVEjCR9fawYdQ6OeZShsc1wJIw0BxxRPpwJGk6JLt44+j8z6D8rj8B5QbwSyZRsOFBi+PyUDzpXlpBh+LI8/AbgSPkjWq9dpNFWWdoX9HVaOd6gu7AGIBIHBthUTY9pMUt4K688hRHEy3H6XKUE+l0+W0Ry5RL7qun2O1jlrbI8UnE85rWw0BGyTo5bca06/TlQQoDYBBX3icZw5xxLUMohweUZMz8xpL/kOXhb7Rhtgf+apyqgSPOoQIfDo=
+  - secure: sT/L+YdIq7Ecq2OhVqpoPUJ/jnCYuKzMAiU/41z1j0pnZlT+XkXK9Ixz5az0AhZ6rt108QJKgBag0tAbftHUkp0iiB0b4V76pR9IlaHEAWNZI4WCBNqwyGKbpYiO9Mu4LB2bAgOqJ3TfntgkMPVqlQp36d2Lrm0y1f/bTtKuzQ7g5mUUenDCph92JxVuyCdRbDPMEROaOXdJ+Cu866lYkniFa/mYG0//FJDjgG4UDjjH2hmKrRPf7I9BT4/H6IFlF//yuNuV5gTbZQ3uiKXFvmhXNcYRheGjeRJKryhtrUDBiFSlJS4YS/BsVWFXacvNioT9WCDE21Lla5tXlIti4QsRoyLe+He+4+JCKpYUV5TLuNtxlbh9xcWef2nB4hkpbGmsvXTv1JJ2R20/kFYxXBQSlFo1f80XGk7mlEdmvl0989jhDXCRwbIJzxKm6KiIDj246auTgzaKc1fpQCmGovSJHsHduSBpxiy2W8CfyH71cCBzfmbqfRCPSCjEPSJGfz87dtGhK2eAwkt3Bdy0hga0fZUbaHrc9fiwiXVtVYPPkHlhvCJZTBzJXGdanyNMj8/fYq6/s3JPJ+4PXtWaTOC8yVCG1CeYT0wDG05Fa4PBNQuFihJNwGW6ftoA6l10q0SNlr0fU91obJECmeYQ7PB8/sd5UCu7dCAestqju2s=
