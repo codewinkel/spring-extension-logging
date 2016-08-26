@@ -1,4 +1,1 @@
-target
-.mvn
-.idea
-*.iml
+.iml
