@@ -6,7 +6,6 @@
     <groupId>io.winkelmann</groupId>
     <artifactId>spring-ext-logging</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
     <name>Spring Extention Logging</name>
     <url>https://github.com/mwinkelmann/spring-extension-logging</url>
 
