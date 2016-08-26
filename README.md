@@ -3,8 +3,6 @@ Spring interceptor to generate an uniform logging message for incoming and outgo
 
 
 TODO
-* add licence
-* add travis
 * add tests
 * add mvn release config
 
