@@ -2,3 +2,6 @@ target
 .mvn
 .idea
 *.iml
+*.db
+mvnw
+mvnw.cmd
