@@ -25,9 +25,10 @@
         </developer>
     </developers>
     <scm>
+        <tag>HEAD</tag>
+        <url>https://github.com/mwinkelmann/spring-extension-logging</url>
         <connection>scm:git:https://github.com/mwinkelmann/spring-extension-logging.git</connection>
         <developerConnection>scm:git:git@github.com:mwinkelmann/spring-extension-logging.git</developerConnection>
-        <url>https://github.com/mwinkelmann/spring-extension-logging</url>
     </scm>
     <ciManagement>
         <system>Travis CI</system>
