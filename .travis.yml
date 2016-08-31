@@ -25,4 +25,4 @@ after_success:
 - ./cd/before-deploy.sh
 - ./cd/deploy.sh
 - mvn release:prepare -B --settings cd/mvnsettings.xml
-- mvn release:perform -P --settings cd/mvnsettings.xml
+- mvn release:perform --settings cd/mvnsettings.xml
