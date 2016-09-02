@@ -24,6 +24,9 @@ cache:
   directories:
     - ~/.m2/repository
 
+before_deploy:
+- chmod u+x cd/deploy.sh
+
 deploy:
   -
     provider: script
