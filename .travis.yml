@@ -14,12 +14,11 @@ env:
 
 before_install:
 - ./cd/before-deploy.sh
-- mvn --settings ./cd/mvnsettings.xml install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 - git config --global user.email "mikedotwinkelmann@gmail.com"
 - git config --global user.name "Travis-CI Mike Winkelmann"
 
 install:
-- mvn --settings ./cd/mvnsettings.xml -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+- mvn --settings ./cd/mvnsettings.xml install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 cache:
   directories:
