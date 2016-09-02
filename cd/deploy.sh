@@ -1,15 +1,15 @@
 #!/bin/bash
 cd `dirname $0`/..
 
-if [ -z "$SONATYPE_USERNAME" ]
+if [ -z "$JIRA_USERNAME" ]
 then
-    echo "error: please set SONATYPE_USERNAME and SONATYPE_PASSWORD environment variable"
+    echo "error: please set JIRA_USERNAME and JIRA_PASSWORD environment variable"
     exit 1
 fi
 
-if [ -z "$SONATYPE_PASSWORD" ]
+if [ -z "$JIRA_PASSWORD" ]
 then
-    echo "error: please set SONATYPE_PASSWORD environment variable"
+    echo "error: please set JIRA_PASSWORD environment variable"
     exit 1
 fi
 
