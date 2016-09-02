@@ -1,13 +1,31 @@
-# spring-extension-logging
-Spring interceptor to generate an uniform logging message for incoming and outgoing http calls.
+# Spring Logging Interceptor
+... was build for every spring developer and needs to be placed in every spring project! :)
 
+##About
+This is a small library for spring which will give you the ability to add a logging interceptor to spring to log all http requests.
+You could also configure a lot for the logging interceptor.
 
+##How to use??
+... TODO
 
-TODO
+##Configuration
+... TODO
+
+##Maven
+Current version is available at central repository
+
+    <dependencies>
+        ...
+        <dependency>
+	        <groupId>io.winkelmann</groupId>
+		    <artifactId>spring-extension-logging</artifactId>
+		    <version>{CURRENT_VERSION}</version>
+	    </dependency>
+        ...
+    </dependencies>
+For the current version take a look at the maven central page: https://mvnrepository.com/artifact/io.winkelmann/spring-extension-logging
+
+###TODO
 * add tests
-* add mvn release config
-
-
-Features
-* added logging level config
-* add README
+* make logging level settable
+* some tests for usage with stringBuilder and google string concatinator

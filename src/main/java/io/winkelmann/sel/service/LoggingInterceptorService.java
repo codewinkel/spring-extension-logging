@@ -13,6 +13,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
+ * Service to generate the message which will be replace every pattern which was configured.
+ *
  * @author m.winkelmann
  */
 public class LoggingInterceptorService {
