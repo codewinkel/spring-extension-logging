@@ -28,6 +28,7 @@ deploy:
   -
     provider: script
     script: .travis/deploy.sh
+    skip_cleanup: true
     on:
       repo: mwinkelmann/spring-extension-logging
       branch: master
@@ -35,6 +36,7 @@ deploy:
   -
     provider: script
     script: .travis/deploy.sh
+    skip_cleanup: true
     on:
       repo: mwinkelmann/spring-extension-logging
       tags: true
