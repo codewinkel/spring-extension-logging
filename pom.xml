@@ -8,6 +8,9 @@
     <version>1.0-SNAPSHOT</version>
     <name>Spring Extention Logging</name>
     <url>https://github.com/mwinkelmann/spring-extension-logging</url>
+    <description>Extension to log every incomming/outgoing http request etc. with Log4J due an spring interceptor and
+        configure it once.
+    </description>
 
     <licenses>
         <license>
