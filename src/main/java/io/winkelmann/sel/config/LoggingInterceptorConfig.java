@@ -33,30 +33,30 @@ public class LoggingInterceptorConfig {
     }
 
     private static String initDefaultPreHandlePattern() {
-        StringBuilder pattern = new StringBuilder("Method: " + LogField.HTTP_REQUEST_METHOD);
-        pattern.append(" - RequestURI: ").append(LogField.HTTP_REQUEST_URI);
-        pattern.append(" - RequestURL: ").append(LogField.HTTP_REQUEST_URL);
-        pattern.append(" - Runtime: " + LogField.REQUEST_RUNTIME + "ms");
-        pattern.append(" - RequestedSessionId: ").append(LogField.HTTP_REQUEST_SESSION_ID);
-        pattern.append(" - CreatedSessionId: ").append(LogField.HTTP_REQUEST_CREATED_SESSION_ID);
-        return pattern.toString();
+        return new StringBuilder("Method: " + LogField.HTTP_REQUEST_METHOD)
+                .append(" - RequestURI: ").append(LogField.HTTP_REQUEST_URI)
+                .append(" - RequestURL: ").append(LogField.HTTP_REQUEST_URL)
+                .append(" - Runtime: " + LogField.REQUEST_RUNTIME + "ms")
+                .append(" - RequestedSessionId: ").append(LogField.HTTP_REQUEST_SESSION_ID)
+                .append(" - CreatedSessionId: ").append(LogField.HTTP_REQUEST_CREATED_SESSION_ID)
+                .toString();
     }
 
     private static String initDefaultAfterCompletionPattern() {
-        StringBuilder pattern = new StringBuilder("Method: " + LogField.HTTP_REQUEST_METHOD);
-        pattern.append(" - RequestURI: " + LogField.HTTP_REQUEST_URI);
-        pattern.append(" - RequestParams: " + LogField.HTTP_REQUEST_PARAMS);
-        pattern.append(" - HttpStatus: " + LogField.HTTP_RESPONSE_STATUS);
-        pattern.append(" - Runtime: " + LogField.REQUEST_RUNTIME + "ms");
-        return pattern.toString();
+        return new StringBuilder("Method: " + LogField.HTTP_REQUEST_METHOD)
+                .append(" - RequestURI: " + LogField.HTTP_REQUEST_URI)
+                .append(" - RequestParams: " + LogField.HTTP_REQUEST_PARAMS)
+                .append(" - HttpStatus: " + LogField.HTTP_RESPONSE_STATUS)
+                .append(" - Runtime: " + LogField.REQUEST_RUNTIME + "ms")
+                .toString();
     }
 
     private static String initDefaultPostHandlePattern() {
-        StringBuilder pattern = new StringBuilder("Method: " + LogField.HTTP_REQUEST_METHOD);
-        pattern.append(" - RequestURI: " + LogField.HTTP_REQUEST_URI);
-        pattern.append(" - HttpStatus: " + LogField.HTTP_RESPONSE_STATUS);
-        pattern.append(" - Runtime: " + LogField.REQUEST_RUNTIME + "ms");
-        return pattern.toString();
+        return new StringBuilder("Method: " + LogField.HTTP_REQUEST_METHOD)
+                .append(" - RequestURI: " + LogField.HTTP_REQUEST_URI)
+                .append(" - HttpStatus: " + LogField.HTTP_RESPONSE_STATUS)
+                .append(" - Runtime: " + LogField.REQUEST_RUNTIME + "ms")
+                .toString();
     }
 
 }
